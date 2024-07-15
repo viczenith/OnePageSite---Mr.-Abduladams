@@ -1,0 +1,1 @@
+from OnePageSite.wsgi import application

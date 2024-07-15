@@ -1,0 +1,340 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbdulAdams - Webpage</title>
+    <link rel="icon" href="{% static 'assets/images/logo.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'assets/css.css' %}">
+</head>
+<body>
+    <!-- <header>
+        <div class="container">
+            <div class="logo">CryptoHub</div>
+            <nav>
+                <a href="#contact">Contact Us</a>
+            </nav>
+        </div>
+    </header> -->
+
+    <section class="hero">
+        <div class="container">
+            {% for x in section_one %}
+            <h1 style="font-size: 40px;">{{ x.heading }}</h1>
+            <p style="font-size: 25px;">{{ x.text }}</p>
+            <!-- <a href="{{ x.button_link }}" class="cta-button">To Know More, Click Here</a> -->
+            {% endfor %}
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <div style="display: flex; justify-content: center;">
+            <!-- <video style="width: 100%;" src="{% static 'assets/video/How Cryptocurrency ACTUALLY works..mp4' %}" id="promo-video" autoplay controls playsinline  type="video/mp4"></video> -->
+            {% for x in video_file %}
+            <video style="width: 100%;" src="{{ x.video_file.url }}" id="promo-video" autoplay controls playsinline  type="video/mp4"></video>
+            {% endfor %}
+        </div>
+
+        {% for x in click_to_join_link_whatsApp %}
+        <section id="contact" class="contact">
+            <div class="container">
+                <a href="{{ x.button_link }}" class="cta-button webinar-btn">Chat Me on WhatsApp</a>
+            </div>
+        </section>
+        {% endfor %}
+    </section>
+
+    <!-- <section id="contact" class="contact">-->
+    <!--    <div class="container">-->
+    <!--        <a href="https://wa.me/YOURNUMBER" class="cta-button">Click Here To Join Now</a>-->
+    <!--    </div>-->
+    <!--</section>-->
+    <section class="services">
+        <div class="container">
+            {% for x in crypto_course %}
+                <div class="service-item">
+                    <h3>{{ x.heading }}</h3>
+                    <p>{{ x.text }}</p>
+    
+                        
+                    <section id="contact" class="contact">
+                        <div class="container">
+                            <a href="{{ x.button_link }}" class="cta-button  webinar-btn">Click Here To Get Course</a>
+                        </div>
+                    </section>    
+                </div>
+                    
+                    <style>
+                        @keyframes backgroundAnimation {
+                            0% {
+                                background-color: #ffe733;
+                            }
+                            25% {
+                                background-color: #FFD700;
+                            }
+                            50% {
+                                background-color: #3357FF;
+                            }
+                            75% {
+                                background-color: #FF33A8;
+                            }
+                            100% {
+                                background-color: #0D47A1;
+                            }
+                        }
+                        .contact .container a{
+                            /* background: #E3F2FD; */
+                            animation: backgroundAnimation 10s infinite;
+                            background: #FFD700;
+                        }
+                    </style>
+            </div>
+            {% endfor %}
+            
+            <div class="container">
+                {% for x in click_to_join_link_telegram_channel %}
+                <div class="service-item">
+                        <!-- <h3>{{x.heading}}</h3> -->
+                        <p>{{x.text1}}</p>
+                        <p>{{x.text2}}</p>
+                    
+                    <section id="contact" class="contact">
+                        <div class="container">
+                            <a href="{{ x.button_link }}" class="cta-button webinar-btn">Join Telegram Channel</a>
+                        </div>
+                    </section>
+                </div>
+                {% endfor %}
+            </div>
+
+            
+            {% for x in webinar %}
+            <div class="service-item">
+                    <h3>{{x.heading}}</h3>
+                    <p>{{x.text1}}</p>
+                    <p>{{x.text2}}</p>
+                
+                <section id="contact" class="contact">
+                    <div class="container">
+                        <a href="{{ x.button_link }}" class="cta-button webinar-btn">Join Webinar Now</a>
+                    </div>
+                </section>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <section class="news">
+        <div class="container">
+            <h2>Latest Crypto Trend News</h2>
+            <div id="news-slider">
+                <!-- News items will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+   
+    <!-- <section id="contact" class="contact">
+        <div class="container">
+            <a href="https://wa.me/YOURNUMBER" class="cta-button">Click Here To Join Now</a>
+        </div>
+    </section> -->
+    <section class="testimonials">
+        <div class="container">
+            {% for x in testimonial %}
+            <h2>Testimonials</h2>
+            <p>{{x.text }}</p>
+            
+            {% endfor %}
+        </div>
+
+        <div class="array-img">
+            {% for x in testimonial_video %}
+            <div>
+                <img src="{{ x.images.url }}" alt="">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <style>
+        .testimonials{
+            padding-left: 7rem;
+            padding-right: 7rem;
+            text-align: center;
+        }
+        .array-img{
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            
+        }
+
+        .array-img img{
+            width: 100%;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .testimonials{
+                padding-left: 2rem;
+                padding-right: 2rem;
+                text-align: center;
+            }
+            .array-img{
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+
+    <section class="img-news">
+        <div class="carousel-container">
+            <h2>World Trending News !!!</h2>
+            <div id="news-slider-img" class="news-slider-img">
+                <!-- News items will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <style>
+                
+        @keyframes backgrAnimation {
+            0% {
+                background-color: #ffe733;
+            }
+            25% {
+                background-color: #FFD700;
+            }
+            50% {
+                /* background-color: #3357FF; */
+            }
+            75% {
+                /* background-color: #FF33A8; */
+            }
+            100% {
+                background-color: #E3F2FD;
+            }
+        }
+
+        .img-news {
+            background: #E3F2FD;
+            padding: 50px 0;
+            text-align: center;
+            animation: backgrAnimation 10s infinite;
+        }
+    </style>
+
+    <!-- <section id="contact" class="contact">
+        <div class="container">
+            <a href="https://wa.me/YOURNUMBER" class="cta-button">Click Here To Join Now</a>
+        </div>
+    </section> -->
+
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('promo-video');
+            video.play().catch(error => {
+                console.error('Error attempting to play video:', error);
+            });
+        });
+    </script> -->
+    
+    {% for x in motivation_section %}
+    <section class="services">
+        <div class="container">
+            <!-- <h2>Our Services</h2> -->
+            
+            
+            <!-- <div class="service-item">
+                <h3>Creative Design</h3>
+                <p>Engaging and visually appealing ad and webinar designs that attract attention.</p>
+            </div> -->
+            
+            <div class="service-item">
+                <!-- <h3>Strategy Consultation</h3> -->
+                <p><strong>{{x.text}}</strong></p>
+                
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    
+    <!--<div class="btn_container">-->
+    <!--    <a href="http://t.me/ABDULADAMSS" class="btn">Click Here To Join Now</a>-->
+    <!--</div>-->
+ 
+    {% for x in click_to_join_link_telegram %}
+    <section id="contact" class="contact">
+        <div class="container">
+            <a href="{{ x.button_link }}" class="cta-button">Chat Me on Telegram</a>
+        </div>
+    </section>
+    {% endfor %}
+
+    
+<!-- 
+    <section id="contact" class="contact">
+        <div class="container">
+            <a href="https://wa.me/YOURNUMBER" class="cta-button">Click Here To Join Now</a>
+        </div>
+    </section> -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <!-- <section class="hero" style="background-color: transparent;">
+                        <a href="#lead-form" class="cta-button">For Enquiry Click Here</a>
+                    
+                </section> -->
+            </div>
+            
+            <div class="social-media">
+                <!-- Add your social media links here -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Generation Form Modal -->
+    <!-- <div id="lead-form" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Contact Us now</h2>
+            <form id="leadForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div> -->
+
+    /*<style>*/
+    /*    .btn_container {*/
+    /*        padding: 50px 0;*/
+    /*        text-align: center;*/
+    /*    }*/
+    /*    .btn{*/
+    /*        background: #FFD700 !important;*/
+    /*        color: #fff;*/
+    /*        padding: 30px 70px;*/
+    /*        font-size: 22px;*/
+    /*        text-decoration: none;*/
+    /*        font-weight: bold;*/
+    /*        border-radius: 5px;*/
+    /*    }*/
+    /*</style>*/
+
+    <script src="{% static 'assets/js.js' %}"></script>
+</body>
+</html>
